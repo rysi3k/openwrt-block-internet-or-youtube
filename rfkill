@@ -1,0 +1,13 @@
+#!/bin/sh
+
+[ "${ACTION}" = "released" -o -n "${TYPE}" ] || exit 0
+
+. /lib/functions.sh
+
+logger "$BUTTON pressed for $SEEN seconds"
+
+if [ "$SEEN" -gt 4 ]
+then
+	/root/switch_youtube.sh
+fi
+
